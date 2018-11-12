@@ -11,7 +11,7 @@ args = parser.parse_args()
 print '==========='
 
 s = requests.Session()
-s.headers.update({'dss-session-token': args.token)
+s.headers.update({'dss-session-token': args.token})
 resp_json = s.get(args.url).json()
 
 rec_buckets = int(0)
@@ -25,7 +25,7 @@ for bucket in resp_json['page']['buckets']:
 if rec_buckets == 0:
     print 'No Recommended for You row found'
 
-filename = 'output_%s.json' % time.strftime('%Y%m%d_%H%M_%S')
+filename = 'output/output_dss_token_%s.json' % time.strftime('%Y%m%d_%H%M_%S')
 text_file = open(filename, "w")
 text_file.write(json.dumps(resp_json, indent=2))
 text_file.close()
