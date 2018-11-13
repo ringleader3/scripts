@@ -1,3 +1,4 @@
+#!/usr/local/bin/python
 import requests
 import json
 import time
@@ -15,7 +16,7 @@ if args.url:
 elif args.endpoint:
     url = espn_endpoints.endpoints[args.endpoint]
 else:
-    print 'either add provide a url or choose an endpoint'
+    print 'either add provide a url or choose an endpoint, please run with -h for help'
     exit()
 
 print '==========='
@@ -23,7 +24,6 @@ print 'SAMPLE CURL:'
 print 'curl -H \"dss-session-token:%s\" \"%s\"' % (args.token, url)
 print '==========='
 
-exit()
 s = requests.Session()
 s.headers.update({'dss-session-token': args.token})
 resp_json = s.get(url).json()
