@@ -2,6 +2,7 @@
 import argparse
 import espn_endpoints
 import json_helper
+import os
 
 parser = argparse.ArgumentParser()
 parser.add_argument("--token", help="dss session token", type=str, default="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjb250ZXh0Ijp7InByb2ZpbGVzIjpbeyJhY3RpdmUiOnRydWUsInR5cGUiOiJ1cm46YmFtdGVjaDpwcm9maWxlIiwiaWQiOiJ1c2VyXzEiLCJwYXJlbnRhbF9jb250cm9scyI6eyJlbmFibGVkIjpmYWxzZX19XX19.D-oSieYZYy58YZBMv_lSm_i0-LR1zqSCNK3r1XRl7V8")
@@ -22,7 +23,7 @@ print 'SAMPLE CURL:'
 print 'curl -H \"dss-session-token:%s\" \"%s\"' % (args.token, request_url)
 print '==========='
 
-resp_json = json_helper.request_json(request_url, args.token)
+resp_json = json_helper.request_json(request_url, {'dss-session-token': args.token})
 
 print 'Recommended for You content:'
 rec_buckets = int(0)
@@ -36,6 +37,6 @@ for bucket in resp_json['page']['buckets']:
 if rec_buckets == 0:
     print 'No Recommended for You row found'
 
-json_helper.output_file(resp_json)
+json_helper.output_file(os.path.basename(__file__), resp_json)
 
 exit()
