@@ -1,3 +1,4 @@
+#!/usr/local/bin/python
 import requests
 import json_helper
 import argparse
