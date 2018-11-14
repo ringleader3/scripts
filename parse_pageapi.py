@@ -1,7 +1,6 @@
 import json_helper
 import argparse
 import espn_endpoints
-import json
 
 parser = argparse.ArgumentParser()
 parser.add_argument("--token", help="dss session token", type=str)
@@ -25,3 +24,5 @@ for bucket in resp_json['page']['buckets']:
     for content in bucket['contents']:
         print "Name: %s" % content['name']
         print "ID: %s" % content['id']
+        
+exit()
