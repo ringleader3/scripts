@@ -7,4 +7,6 @@ endpoints = {
 'http://watch.product.api.qa.espn.com/api/product/v3/tvos/watchespn/featured?entitlements=ESPN_PLUS',
 'xbox':
 'http://watch.product.api.qa.espn.com/api/product/v3/tvos/watchespn/featured?entitlements=ESPN_PLUS',
+'xbox_prod':
+'http://watch.product.api.espn.com/api/product/v3/tvos/watchespn/featured?entitlements=ESPN_PLUS',
 }
